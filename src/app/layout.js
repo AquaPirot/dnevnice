@@ -1,4 +1,5 @@
 import './globals.css'
+import Script from 'next/script'
 
 export const metadata = {
   title: 'Evidencija Radnih Sati - AG Group',
@@ -44,12 +45,14 @@ export default function RootLayout({ children }) {
         <link rel="icon" type="image/png" sizes="192x192" href="/icon-192x192.png" />
         <link rel="icon" type="image/png" sizes="512x512" href="/icon-512x512.png" />
         <link rel="manifest" href="/manifest.json" />
-        
-        {/* Tailwind CSS */}
-        <script src="https://cdn.tailwindcss.com"></script>
       </head>
       <body className="antialiased">
         {children}
+        {/* Tailwind CSS loaded asynchronously */}
+        <Script 
+          src="https://cdn.tailwindcss.com" 
+          strategy="beforeInteractive"
+        />
       </body>
     </html>
   )
